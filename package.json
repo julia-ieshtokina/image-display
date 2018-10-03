@@ -4,7 +4,7 @@
   "description": "Forbes Engineering Coding Test",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server  --mode development",
+    "start": "webpack-dev-server --mode development",
     "server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

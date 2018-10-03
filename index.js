@@ -13,8 +13,10 @@ fetch(url)  // fetching images
   }).catch(error => console.log(error));
 
 function renderPage(data, pageNum = 1) {  // rendering basic layout of the page
+
   const pagination = document.createElement('div');
   pagination.setAttribute('id', 'pagination');
+
   const firstPage = document.createElement('a');
   firstPage.addEventListener('click', () => {
     removeActive();
@@ -22,6 +24,7 @@ function renderPage(data, pageNum = 1) {  // rendering basic layout of the page
     pagination.childNodes[1].className += 'active';
   });
   firstPage.innerHTML = '&laquo;';
+
   const lastPage = document.createElement('a');
   lastPage.addEventListener('click', (e) => {
     removeActive();
@@ -30,6 +33,7 @@ function renderPage(data, pageNum = 1) {  // rendering basic layout of the page
   }); 
   lastPage.innerHTML = '&raquo;';
   pagination.appendChild(firstPage);
+
   for(let i = 1; i < (data.length / 10) + 1; i++) {
     const page = document.createElement('a');
     page.innerHTML = i;
@@ -40,9 +44,12 @@ function renderPage(data, pageNum = 1) {  // rendering basic layout of the page
     });
     pagination.appendChild(page);
   }
+
+  pagination.childNodes[1].className += 'active';
   pagination.appendChild(lastPage);
   document.getElementById('root').appendChild(pagination);
-  displayImages(getImgArray(data, pageNum, 10)); // rendering list of 10 thumbnails
+
+  return displayImages(getImgArray(data, pageNum, 10)); // rendering list of 10 thumbnails
 }
 
 function removeActive() {
@@ -72,15 +79,20 @@ function displayImages(imgArray) {  // rendering list of 10 thumbnails
       img_container.removeChild(pics[pic]);
     }
   } 
+
   imgArray.map((img) => { // looping through the array of images and rendering them to the DOM
+
     const image = document.createElement('img');
     image.setAttribute('src', img.largeImageURL);
     image.setAttribute('id', img.id);
     image.setAttribute('class', 'thumb');
+    image.setAttribute('alt', 'Loading image');
     image.addEventListener('click', openModal);
+
     if(img.imageHeight < img.imageWidth) {
       image.setAttribute('class', 'landscape');
     }
+
     const thumbpost = document.createElement('div');
     thumbpost.setAttribute('class', 'thumbpost');
     thumbpost.appendChild(image);
@@ -89,8 +101,10 @@ function displayImages(imgArray) {  // rendering list of 10 thumbnails
 }
 
 function openModal(e) {  // display modal and render selected image
+
     const modal = document.getElementById('modal');
     modal.parentNode.style.display = 'flex';
+
     let link, orientation; 
     data.forEach(obj => {
       if(obj.id == e.target.id) {
@@ -102,9 +116,11 @@ function openModal(e) {  // display modal and render selected image
     const imageToOpen = document.createElement('img');
     imageToOpen.setAttribute('src', link);
     imageToOpen.setAttribute('class', 'modal-image');
+
     if(orientation === 'portrait') {
       imageToOpen.className += ' portrait';
     }
+
     modal.appendChild(imageToOpen);
     modal.parentNode.addEventListener('click', closeModal);
   }
