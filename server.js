@@ -18,9 +18,5 @@ http.createServer((req, res) => {
       res.writeHead(200, {'Content-Type': 'text/javascript'});
       res.end(data);
     }) 
-  } else if(req.method === 'GET' && req.url === '/favicon.ico') {
-    fs.readFile('./favicon.ico', (err, data) => {
-      res.end(data);
-    }) 
-  }
+  } 
 }).listen(3000, () => console.log('Listening on port 3000'));

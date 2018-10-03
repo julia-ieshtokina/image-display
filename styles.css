@@ -20,7 +20,7 @@ body {
 .thumbpost{
   border: 2px solid #ddd; 
   border-radius: 4px;  
-  margin: 5px 5px 5px 5px;
+  margin: 20px;
   width: 150px;
   height: 150px;
   overflow: hidden;
@@ -42,13 +42,13 @@ img.landscape {
   height: 100%;
 }
 
-.pagination {
+#pagination {
   position: relative;
   text-align: center;
   margin-top: 30px;
 }
 
-.pagination a {
+#pagination a {
   color: black;
   padding: 8px 16px;
   text-decoration: none;
@@ -56,12 +56,13 @@ img.landscape {
   width: 100%;
 }
 
-.pagination a.active {
-  background-color: dodgerblue;
+#pagination a.active {
+  background-color: rgba(0, 140, 186, 0.6);
   color: white;
+  border-radius: 2px;
 }
 
-.pagination a:hover:not(.active) {
+#pagination a:hover:not(.active) {
   background-color: #ddd;
 }
 
@@ -86,6 +87,8 @@ img.landscape {
   justify-content: center;
   position: relative;
   margin: auto;
+  background-color: #ddd;
+  border-radius: 1px;
   padding: 5px;
   max-width: 70%;
   height: auto;
@@ -93,22 +96,21 @@ img.landscape {
 }
 
 #modal img {
-  max-width: 100%; /* works for landscape */
+  max-width: 100%; 
   height: auto;
   overflow-y: auto; 
 }
 
 #modal img.portrait {
-  max-width: 70%; /* works for landscape */
+  max-width: 70%; 
   max-height: auto;
-  overflow-y: auto; 
 }
 
 #close_btn {
   display: block;
   position: fixed;
   z-index: 2;
-  width: 7%;
+  width: 10%;
   height: auto;
   top: 0%;
   right: 0%;
@@ -116,8 +118,9 @@ img.landscape {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.2); /* Black w/ opacity */
   text-align: center;  
-  color: #fff;
+  color: #ddd;
   border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 1px; 
   padding: 10px;
   font-size: 20px;
 }

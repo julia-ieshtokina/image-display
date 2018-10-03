@@ -4,13 +4,17 @@
   "description": "Forbes Engineering Coding Test",
   "main": "index.js",
   "scripts": {
-    "start": "BROWSER='Chrome' nodemon server.js",
+    "start": "webpack-dev-server  --mode development",
+    "server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Julia",
+  "author": "Julia Ieshtokina",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "nodemon": "^1.18.4"
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
   }
 }
